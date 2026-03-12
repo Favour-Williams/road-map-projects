@@ -20,3 +20,13 @@ def add_task(task_description):
     })
     with open("task.json", "w") as file:
         json.dump(tasks, file, indent=4)
+
+def update_task(task_id, new_description):
+    tasks = load_tasks()
+    for task in tasks:
+        if task["id"] == task_id:
+            task["description"] = new_description
+            task["updated_at"] = time.time()
+            break
+    with open("task.json", "w") as file:
+        json.dump(tasks, file, indent=4)
