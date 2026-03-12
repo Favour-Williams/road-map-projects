@@ -30,3 +30,16 @@ def update_task(task_id, new_description):
             break
     with open("task.json", "w") as file:
         json.dump(tasks, file, indent=4)
+
+def delete_task(task_id):
+    tasks = load_tasks()
+    original_count = len(tasks)
+    
+    filtered_tasks = [task for task in tasks if task["id"] != task_id]
+    
+    if len(filtered_tasks) == original_count:
+        print(f"Error: Task ID {task_id} not found.")
+    else:
+        with open("task.json", "w") as file:
+            json.dump(filtered_tasks, file, indent=4)
+        print(f"Task {task_id} deleted successfully.")

@@ -12,29 +12,30 @@ def main():
             if command not in ["add", "update", "delete", "list"]:
                 print("Invalid command. Please enter 'add', 'update', 'delete', 'list', or 'exit'.")
                 continue
-            if command in ["add", "update", "delete"] and not task:
-                print(f"Please provide a task description for the '{command}' command.")
-                continue
             if split_input[0] != "task-cli":
                 print("Invalid command format. Please start your command with 'task-cli'.")
                 continue
 
             
             if command == "add":
-                print(f"Adding a new task: {task}")
+                
                 task_description = " ".join(split_input[2:])
+                print(f"Adding a new task: {task_description}")
                 add_task(task_description)
                 continue
 
             elif command == "update":
-                print(f"Updating task: {task}")
+                
                 task_id = int(split_input[2])
                 task_description = " ".join(split_input[3:])
+                print(f"Updating task: {task_id}")
                 update_task(task_id, task_description)  
                 continue
 
             elif command == "delete":
-                print(f"Deleting task: {task}")
+                
+                task_id = int(split_input[2])
+                print(f"Deleting task: {task_id}")
                 delete_task(task_id)  
                 continue
             elif command == "list":
