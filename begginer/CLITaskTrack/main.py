@@ -1,4 +1,4 @@
-from services import add_task, update_task, delete_task
+from services import add_task, update_task, delete_task, list_tasks
 
 def main():
     try:
@@ -20,6 +20,9 @@ def main():
             if command == "add":
                 
                 task_description = " ".join(split_input[2:])
+                if not task_description:
+                    print("Error: Task description cannot be empty.")
+                    continue
                 print(f"Adding a new task: {task_description}")
                 add_task(task_description)
                 continue
@@ -28,6 +31,9 @@ def main():
                 
                 task_id = int(split_input[2])
                 task_description = " ".join(split_input[3:])
+                if not task_description or task_id <= 0:
+                    print("Error: Task ID must be a positive integer and description cannot be empty.")
+                    continue
                 print(f"Updating task: {task_id}")
                 update_task(task_id, task_description)  
                 continue
@@ -35,12 +41,22 @@ def main():
             elif command == "delete":
                 
                 task_id = int(split_input[2])
+                if task_id <= 0:
+                    print("Error: Task ID must be a positive integer.")
+                    continue
                 print(f"Deleting task: {task_id}")
                 delete_task(task_id)  
                 continue
             elif command == "list":
-                print("Listing all tasks...")
-                # Code to list tasks goes here
+                print("Listing all tasks...\n")
+                ty = split_input[2] if len(split_input) > 2 else None
+                list_tasks(ty)
+                continue
+            elif command == "mark-in-progress":
+                pass
+            elif command == "mark-done":
+                pass
+
             elif user_input.lower() == "exit":
                 print("Exiting the program.")
                 break
