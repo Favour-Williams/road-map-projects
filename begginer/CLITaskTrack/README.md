@@ -21,11 +21,13 @@ A simple command-line interface (CLI) application for managing personal tasks. T
 1. Run the application:
    ```bash
    python main.py
+   ```
    or
+   ```
    python3 main.py
    ```
 
-2. Enter commands in the format: `task-cli <command> [arguments]`
+3. Enter commands in the format: `task-cli <command> [arguments]`
 
 ### Available Commands
 
