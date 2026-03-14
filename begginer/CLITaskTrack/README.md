@@ -54,7 +54,7 @@ Enter a command (add, update, delete, list) or 'exit' to quit: task-cli mark-in-
 Marking task 1 as in progress...
 ```
 
-## 📄 File Structure
+## 📄🗂 File Structure
 
 - `main.py`: Main CLI interface
 - `services.py`: Task management functions
