@@ -1,4 +1,4 @@
-from services import add_task, update_task, delete_task, list_tasks
+from services import add_task, update_task, delete_task, list_tasks, mark_in_progress, mark_done
 
 def main():
     try:
@@ -47,21 +47,36 @@ def main():
                 print(f"Deleting task: {task_id}")
                 delete_task(task_id)  
                 continue
+
             elif command == "list":
                 print("Listing all tasks...\n")
                 ty = split_input[2] if len(split_input) > 2 else None
                 list_tasks(ty)
                 continue
+                
             elif command == "mark-in-progress":
-                pass
+                task_id = int(split_input[2])
+                if task_id <= 0:
+                    print("Error: Task ID must be a positive integer.")
+                    continue
+                print(f"Marking task {task_id} as in progress...")
+                mark_in_progress(task_id)
+                continue
+                
             elif command == "mark-done":
-                pass
+                task_id = int(split_input[2])
+                if task_id <= 0:
+                    print("Error: Task ID must be a positive integer.")
+                    continue
+                print(f"Marking task {task_id} as done...")
+                mark_done(task_id)
+                continue
 
             elif user_input.lower() == "exit":
                 print("Exiting the program.")
                 break
 
-            break  # Remove this line to keep the program running indefinitely
+            break
     except KeyboardInterrupt:
         print("Program ended by user.")
 
