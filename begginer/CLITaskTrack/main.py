@@ -6,11 +6,19 @@ def main():
             user_input = input("Enter a command (add, update, delete, list) or 'exit' to quit: ")
 
             split_input = user_input.split()
+            if user_input.lower() == "exit":
+                print("\nExiting the program.")
+                break
+
+            if not split_input or len(split_input) < 2:
+                print("Invalid command format. Please enter a valid command.")
+                continue
+
             command = split_input[1] if split_input else ""
             
 
-            if command not in ["add", "update", "delete", "list"]:
-                print("Invalid command. Please enter 'add', 'update', 'delete', 'list', or 'exit'.")
+            if command not in ["add", "update", "delete", "list", "mark-in-progress", "mark-done"]:
+                print("Invalid command. Please enter 'add', 'update', 'delete', 'list', 'mark-in-progress', or 'mark-done'.")
                 continue
             if split_input[0] != "task-cli":
                 print("Invalid command format. Please start your command with 'task-cli'.")
@@ -53,7 +61,7 @@ def main():
                 ty = split_input[2] if len(split_input) > 2 else None
                 list_tasks(ty)
                 continue
-                
+
             elif command == "mark-in-progress":
                 task_id = int(split_input[2])
                 if task_id <= 0:
@@ -71,14 +79,9 @@ def main():
                 print(f"Marking task {task_id} as done...")
                 mark_done(task_id)
                 continue
-
-            elif user_input.lower() == "exit":
-                print("Exiting the program.")
-                break
-
             break
     except KeyboardInterrupt:
-        print("Program ended by user.")
+        print("\nProgram ended by user.")
 
 if __name__ == "__main__":
     main()

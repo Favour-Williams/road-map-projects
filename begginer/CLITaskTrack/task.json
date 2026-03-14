@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "id": 2,
+        "description": "\"Buy coke\"",
+        "status": "todo",
+        "created_at": 1773484800.500548,
+        "updated_at": 1773484800.5005486
+    }
+]

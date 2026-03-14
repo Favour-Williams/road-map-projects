@@ -60,6 +60,7 @@ def list_tasks(ty=None):
     if ty and ty in task_types:
         print(f"Listing tasks with status: {ty}\n")
         tasks = [task for task in tasks if task["status"] == ty]
+    
     for task in tasks:
         print(f"ID: {task['id']}, Description: {task['description']}, Status: {task['status']}, Created At: {time.ctime(task['created_at'])}, Updated At: {time.ctime(task['updated_at'])}\n")
 
