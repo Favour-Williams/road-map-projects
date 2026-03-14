@@ -1,8 +1,8 @@
 # 📋 CLI Task Tracker
-
+📖
 A simple command-line interface (CLI) application for managing personal tasks. Track your to-do items, mark them as in progress or done, and keep everything organized in a JSON file.
 
-## 🚀 Features
+## ✨ Features
 
 - ✅ Add new tasks with descriptions
 - ✏️ Update existing task descriptions
@@ -54,7 +54,7 @@ Enter a command (add, update, delete, list) or 'exit' to quit: task-cli mark-in-
 Marking task 1 as in progress...
 ```
 
-## 📄🗂 File Structure
+## 🗂📄 File Structure
 
 - `main.py`: Main CLI interface
 - `services.py`: Task management functions
