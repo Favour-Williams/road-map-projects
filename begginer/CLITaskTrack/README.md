@@ -16,7 +16,7 @@ A simple command-line interface (CLI) application for managing personal tasks. T
 - Python 3.x
 - No external dependencies required
 
-## 📖 Usage
+## 🚀 Usage
 
 1. Run the application:
    ```bash
