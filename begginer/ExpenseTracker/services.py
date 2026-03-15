@@ -1,4 +1,5 @@
 import json
+
 import datetime
 
 class ExpenseTracker:
@@ -24,8 +25,12 @@ class ExpenseTracker:
         expense = {
             'id': len(self.expenses) + 1,
             'amount': f'${amount:.2f}',
+
             'description': description,
             'date': datetime.datetime.now().isoformat()
+
+            'description': description
+
         }
         self.expenses.append(expense)
         self.save_expenses()
@@ -37,6 +42,7 @@ class ExpenseTracker:
     def expense_summary(self):
         total = sum(float(expense['amount'].strip('$')) for expense in self.expenses)
         print(f"Total expenses: ${total}")
+
 
     def expense_list(self):
         if not self.expenses:
@@ -56,3 +62,14 @@ class ExpenseTracker:
                 return
         print(f"Expense with ID {expense_id} not found.")
 
+    def update_expense(self, expense_id, amount=None, description=None):
+        for expense in self.expenses:
+            if expense['id'] == expense_id:
+                if amount is not None:
+                    expense['amount'] = f'${amount:.2f}'
+                if description is not None:
+                    expense['description'] = description
+                self.save_expenses()
+                print(f"Expense with ID {expense_id} updated successfully.")
+                return
+        print(f"Expense with ID {expense_id} not found.")
