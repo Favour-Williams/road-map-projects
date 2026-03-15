@@ -1,4 +1,5 @@
 import json
+import datetime
 
 class ExpenseTracker:
     def __init__(self, filename='expenses.json'):
@@ -23,7 +24,8 @@ class ExpenseTracker:
         expense = {
             'id': len(self.expenses) + 1,
             'amount': f'${amount:.2f}',
-            'description': description
+            'description': description,
+            'date': datetime.datetime.now().isoformat()
         }
         self.expenses.append(expense)
         self.save_expenses()
@@ -35,3 +37,22 @@ class ExpenseTracker:
     def expense_summary(self):
         total = sum(float(expense['amount'].strip('$')) for expense in self.expenses)
         print(f"Total expenses: ${total}")
+
+    def expense_list(self):
+        if not self.expenses:
+            print("No expenses recorded.")
+            return
+        print("Expense List:\n")
+        print(f"{'ID':<5} {'Date':<20} {'Description':<10} {'Amount':<10}")
+        for expense in self.expenses:
+            print(f"{expense['id']} {expense['date']} {expense['description']} {expense['amount']}\n")
+
+    def delete_expense(self, expense_id):
+        for expense in self.expenses:
+            if expense['id'] == expense_id:
+                self.expenses.remove(expense)
+                self.save_expenses()
+                print(f"Expense with ID {expense_id} deleted successfully.")
+                return
+        print(f"Expense with ID {expense_id} not found.")
+
