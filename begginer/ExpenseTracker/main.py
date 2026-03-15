@@ -35,6 +35,9 @@ def main():
                 else:
                     print("Please provide the ID of the expense to delete.")
                     break
+            elif args.command == "update":
+                tracker.update_expense(args.id, amount=args.amount, description=args.description)
+                break
             
             
     except KeyboardInterrupt:
