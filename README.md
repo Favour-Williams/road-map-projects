@@ -1,5 +1,5 @@
 # road-map-projects
-## CLI Task Tracker Project
+## CLI Task Tracker Project URL
 ```
-https://github.com/Favour-Williams/road-map-projects/tree/main/begginer/CLITaskTrack
+https://roadmap.sh/projects/task-tracker
 ```
