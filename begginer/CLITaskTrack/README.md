@@ -26,6 +26,10 @@ A simple command-line interface (CLI) application for managing personal tasks. T
    ```
    python3 main.py
    ```
+   or
+   ```
+   whatever works for you ¯\_(ツ)_/¯
+   ```
 
 3. Enter commands in the format: `task-cli <command> [arguments]`
 
