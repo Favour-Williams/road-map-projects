@@ -1,9 +1,9 @@
 [
     {
-        "id": 2,
-        "description": "\"Buy coke\"",
-        "status": "todo",
-        "created_at": 1773484800.500548,
-        "updated_at": 1773484800.5005486
+        "id": 1,
+        "description": "\"Buy groceries\"",
+        "status": "done",
+        "created_at": 1773835193.6019776,
+        "updated_at": 1773835340.3475077
     }
 ]
